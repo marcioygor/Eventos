@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3wtJLeH/lKUTHAKTejpIIOWP3A5hv4xTWt9p2mTJozVr/aclnqZ2XSGAqgPTrhAxS67KkheklnCIXCBsvQbi7A==",
+  "dgSpecHash": "A6uKRhFahoGS/LZaVjxuB9uvufx+ZkvIlmTk0D0274qw/jgmOEX+zi9WkR1vJ/ROBlrD3b6fHW3xp9vGAJZeoQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Marcio Ygor\\Documents\\Aulas_Web\\Asp-Net\\SistemaDeEventos\\SistemaDeEventos.csproj",
   "expectedPackageFiles": [
@@ -32,6 +32,7 @@
     "C:\\Users\\Marcio Ygor\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Marcio Ygor\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Marcio Ygor\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Marcio Ygor\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Marcio Ygor\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\Marcio Ygor\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",
     "C:\\Users\\Marcio Ygor\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",

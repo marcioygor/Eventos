@@ -22,6 +22,36 @@ namespace SistemaDeEventos.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("SistemaDeEventos.Models.Cliente", b =>
+                {
+                    b.Property<int>("ClienteId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClienteId"), 1L, 1);
+
+                    b.Property<DateTime>("DataNascimento")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
+
+                    b.HasKey("ClienteId");
+
+                    b.ToTable("Clientes");
+                });
+
             modelBuilder.Entity("SistemaDeEventos.Models.Evento", b =>
                 {
                     b.Property<int>("EventoId")
@@ -66,55 +96,25 @@ namespace SistemaDeEventos.Migrations
                         .HasMaxLength(2)
                         .HasColumnType("nvarchar(2)");
 
-                    b.Property<int>("UsuarioId")
+                    b.Property<int>("clienteId")
                         .HasColumnType("int");
 
                     b.HasKey("EventoId");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("clienteId");
 
                     b.ToTable("Eventos");
                 });
 
-            modelBuilder.Entity("SistemaDeEventos.Models.Usuario", b =>
-                {
-                    b.Property<int>("UsuarioId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UsuarioId"), 1L, 1);
-
-                    b.Property<DateTime>("DataNascimento")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Telefone")
-                        .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
-
-                    b.HasKey("UsuarioId");
-
-                    b.ToTable("Usuarios");
-                });
-
             modelBuilder.Entity("SistemaDeEventos.Models.Evento", b =>
                 {
-                    b.HasOne("SistemaDeEventos.Models.Usuario", "Usuario")
+                    b.HasOne("SistemaDeEventos.Models.Cliente", "cliente")
                         .WithMany()
-                        .HasForeignKey("UsuarioId")
+                        .HasForeignKey("clienteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Usuario");
+                    b.Navigation("cliente");
                 });
 #pragma warning restore 612, 618
         }

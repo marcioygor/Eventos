@@ -44,9 +44,9 @@ public class Evento
 
     public string CEP { get; set; }
 
-    public Usuario Usuario { get; set; }
+    public Cliente cliente { get; set; }
 
-    public int UsuarioId { get; set; }
+    public int clienteId { get; set; }
     public int NumeroDePessoasParticipantes { get; set; }
 
 }
