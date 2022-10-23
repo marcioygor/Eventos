@@ -30,15 +30,15 @@ public class Cliente
     [DataType(DataType.PhoneNumber)]
     public string Telefone { get; set; }
 
-    [Required(ErrorMessage = "Informe a sua senha")]
-    [StringLength(100, ErrorMessage = "O {0} deve ter pelo menos {2} caracteres.", MinimumLength = 6)]
-    [DataType(DataType.Password)]
-    public string Senha;
+    [RegularExpression("^(?=.*[A-Z])(?=.*[!#@$%&])(?=.*[0-9])(?=.*[a-z]).{6,15}$",
+    ErrorMessage =  "A senha deve ter tamanho mínimo 6 e no máximo 15 caracteres." +
+                    "ter letras e numero e caractere especial(!#@$%&)."+
+                    "no mínimo uma letra maiúscula e minúscula." +
+                    "no mínimo um numero." +
+                    "no mínimo caractere especial(!#@$%&)")]
+    public string Password { get; set; }
 
-    [Required(ErrorMessage = "Confirme sua senha")]
-    [StringLength(100, ErrorMessage = "O {0} deve ter pelo menos {2} caracteres.", MinimumLength = 6)]
-    [DataType(DataType.Password)]
-    public string ConfirmarSenha;
+    public string ConfirmPassword { get; set; }
 
     public List<Evento> Eventos;
 

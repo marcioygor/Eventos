@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using System.Text;
 using System;
 using System.Net;
@@ -32,7 +33,11 @@ public class ClienteController : Controller
     public IActionResult Cadastrarcliente(Cliente cliente)
     {
         if(ModelState.IsValid){
-                  
+
+             if(cliente.Password != cliente.ConfirmPassword){
+              TempData["CadastroError"] = "As senhas digitadas não são iguais";
+              return RedirectToAction(nameof(Cadastro));
+          } 
             var email=_context.Clientes.FirstOrDefault(x=>x.Email==cliente.Email);
 
             if(email is null){
@@ -59,6 +64,5 @@ public class ClienteController : Controller
         }
 
     }
-
 
 }

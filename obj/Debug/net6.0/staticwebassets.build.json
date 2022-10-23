@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "i9DVgz1qq2n/SS1IV8ZKnNk7YvpPZcOOqVbxEfgW0xo=",
+  "Hash": "X2A4XZ6ZfO1+6rz7fKK2/crJG1x0uYS8AkJhGGzEGTY=",
   "Source": "SistemaDeEventos",
   "BasePath": "_content/SistemaDeEventos",
   "Mode": "Default",
@@ -51,6 +51,23 @@
       "OriginalItemSpec": "C:\\Users\\Marcio Ygor\\Documents\\Aulas_Web\\Asp-Net\\SistemaDeEventos\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\SistemaDeEventos.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\Marcio Ygor\\Documents\\Aulas_Web\\Asp-Net\\SistemaDeEventos\\wwwroot\\css\\CadastroLogin.css",
+      "SourceId": "SistemaDeEventos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Marcio Ygor\\Documents\\Aulas_Web\\Asp-Net\\SistemaDeEventos\\wwwroot\\",
+      "BasePath": "_content/SistemaDeEventos",
+      "RelativePath": "css/CadastroLogin.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\CadastroLogin.css"
+    },
+    {
       "Identity": "C:\\Users\\Marcio Ygor\\Documents\\Aulas_Web\\Asp-Net\\SistemaDeEventos\\wwwroot\\css\\site.css",
       "SourceId": "SistemaDeEventos",
       "SourceType": "Discovered",
@@ -83,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Marcio Ygor\\Documents\\Aulas_Web\\Asp-Net\\SistemaDeEventos\\wwwroot\\img\\hello.svg",
+      "SourceId": "SistemaDeEventos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Marcio Ygor\\Documents\\Aulas_Web\\Asp-Net\\SistemaDeEventos\\wwwroot\\",
+      "BasePath": "_content/SistemaDeEventos",
+      "RelativePath": "img/hello.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\hello.svg"
     },
     {
       "Identity": "C:\\Users\\Marcio Ygor\\Documents\\Aulas_Web\\Asp-Net\\SistemaDeEventos\\wwwroot\\js\\site.js",

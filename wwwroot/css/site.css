@@ -16,3 +16,8 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+#btnEntrar {
+  background-color: #6c63FF;
+  border-color: #6c63FF;
+}
