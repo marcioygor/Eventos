@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "X2A4XZ6ZfO1+6rz7fKK2/crJG1x0uYS8AkJhGGzEGTY=",
+  "Hash": "4FNGtbkFmqc0iJPafEWpkdNpF5yH1WbinJIcif8vXs0=",
   "Source": "SistemaDeEventos",
   "BasePath": "_content/SistemaDeEventos",
   "Mode": "Default",
@@ -117,6 +117,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\hello.svg"
+    },
+    {
+      "Identity": "C:\\Users\\Marcio Ygor\\Documents\\Aulas_Web\\Asp-Net\\SistemaDeEventos\\wwwroot\\img\\img1.jpg",
+      "SourceId": "SistemaDeEventos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Marcio Ygor\\Documents\\Aulas_Web\\Asp-Net\\SistemaDeEventos\\wwwroot\\",
+      "BasePath": "_content/SistemaDeEventos",
+      "RelativePath": "img/img1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\img1.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Marcio Ygor\\Documents\\Aulas_Web\\Asp-Net\\SistemaDeEventos\\wwwroot\\img\\sign_in.svg",
+      "SourceId": "SistemaDeEventos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Marcio Ygor\\Documents\\Aulas_Web\\Asp-Net\\SistemaDeEventos\\wwwroot\\",
+      "BasePath": "_content/SistemaDeEventos",
+      "RelativePath": "img/sign_in.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\sign_in.svg"
     },
     {
       "Identity": "C:\\Users\\Marcio Ygor\\Documents\\Aulas_Web\\Asp-Net\\SistemaDeEventos\\wwwroot\\js\\site.js",

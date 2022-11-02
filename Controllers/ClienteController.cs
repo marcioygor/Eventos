@@ -29,7 +29,37 @@ public class ClienteController : Controller
       return View();
 
     }
-   
+
+    public IActionResult Login()
+    {    
+      if (TempData["LoginError"] != null)
+      {
+           ModelState.AddModelError(string.Empty, TempData["LoginError"].ToString());
+      }
+
+      return View();
+    }
+
+    public IActionResult LoginCliente(Cliente cliente)
+    {    
+      
+      if (String.IsNullOrEmpty(cliente.Email) || String.IsNullOrEmpty(cliente.Password))
+      {
+        TempData["LoginError"] = "É nescessário digitar usuário e senha.";
+        return RedirectToAction(nameof(Login));
+      }
+
+      var usuario=_context.Clientes.FirstOrDefault(x=> x.Email==cliente.Email && x.Password==cliente.Password);
+
+      if (usuario is null){
+        TempData["LoginError"] = "Usuário não encontrado. Verifique as credencias de login e senha.";
+        return RedirectToAction(nameof(Login));
+      }
+
+        return View(cliente);   
+      }
+          
+    [ValidateAntiForgeryToken]
     public IActionResult Cadastrarcliente(Cliente cliente)
     {
         if(ModelState.IsValid){

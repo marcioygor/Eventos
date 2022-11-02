@@ -1,0 +1,45 @@
+@model Cliente
+
+<div class="text-danger">
+    @Html.ValidationSummary(true)
+</div>
+
+<!-- 11 colunas no mobile, e 9 em desktop -->
+<div class="container col-11 col-md-9" id="form-container">
+    <!-- align-items-center para alinhar os itens no centro -->
+    <!-- gx-5 para espaçar a imagem -->
+    <div class="row align-items-center gx-5">
+
+        <div class="col-md-6 order-md-2">
+            <h2>Faça o login para continuar</h2>
+            <form asp-controller="Cliente" asp-action="LoginCliente" method="post">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Digite o seu email" />
+                    <label for="email" class="form-label">Digite o seu e-mail</label>
+
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="password" name="password"
+                        placeholder="Digite a senha" />
+                    <label for="password" class="form-label">Digite a sua senha</label>
+                </div>
+
+                <input type="submit" class="btn btn-primary" value="Entrar">
+
+            </form>
+
+        </div>
+
+        <div class="col-md-6 order-md-1">
+            <div class="col-12">
+                <img src="~/img/sign_in.svg" alt="Entrar no Sistema" class="img-fluid">
+            </div>
+
+            <div class="col-12" id="link-container">
+                <a asp-controller="Cliente" asp-action="Cadastro">Ainda não tem cadastro?</a>
+            </div>
+        </div>
+    </div>
+
+</div>
