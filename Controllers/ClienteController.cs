@@ -7,6 +7,15 @@ using Microsoft.AspNetCore.Mvc;
 using SistemaDeEventos.Data;
 using SistemaDeEventos.Models;
 using Newtonsoft.Json;
+using System.Runtime.Intrinsics.X86;
+using System.Security.Cryptography;
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SistemaDeEventos.Controllers;
 
@@ -41,8 +50,7 @@ public class ClienteController : Controller
     }
 
     public IActionResult LoginCliente(Cliente cliente)
-    {    
-      
+    {         
       if (String.IsNullOrEmpty(cliente.Email) || String.IsNullOrEmpty(cliente.Password))
       {
         TempData["LoginError"] = "É nescessário digitar usuário e senha.";
@@ -55,8 +63,25 @@ public class ClienteController : Controller
         TempData["LoginError"] = "Usuário não encontrado. Verifique as credencias de login e senha.";
         return RedirectToAction(nameof(Login));
       }
+//P!ik76%
+//tester@gmail.com
+            var user=cliente;
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(Settings.Secret);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim(type:ClaimTypes.Email, value:user.Email),
+                }),
 
-        return View(cliente);   
+                Expires = DateTime.UtcNow.AddDays(7),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            user.Password = null;
+        return RedirectToAction("Index", "Evento");
       }
           
     [ValidateAntiForgeryToken]
@@ -81,7 +106,7 @@ public class ClienteController : Controller
                 return RedirectToAction(nameof(Cadastro));
               }
 
-            return View(cliente);        
+            return RedirectToAction(nameof(Login));       
         }
 
         else

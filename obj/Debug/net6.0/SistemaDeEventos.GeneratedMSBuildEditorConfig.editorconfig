@@ -15,10 +15,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Marcio Ygor\Documents\Aulas_Web\Asp-Net\SistemaDeEventos
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Marcio Ygor/Documents/Aulas_Web/Asp-Net/SistemaDeEventos/Views/Cliente/CadastrarCliente.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxDYWRhc3RyYXJDbGllbnRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Marcio Ygor/Documents/Aulas_Web/Asp-Net/SistemaDeEventos/Views/Cliente/Cadastro.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxDYWRhc3Ryby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -27,8 +23,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Marcio Ygor/Documents/Aulas_Web/Asp-Net/SistemaDeEventos/Views/Cliente/LoginCliente.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxMb2dpbkNsaWVudGUuY3NodG1s
+[C:/Users/Marcio Ygor/Documents/Aulas_Web/Asp-Net/SistemaDeEventos/Views/Evento/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Marcio Ygor/Documents/Aulas_Web/Asp-Net/SistemaDeEventos/Views/Home/Index.cshtml]
