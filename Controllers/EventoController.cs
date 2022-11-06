@@ -18,13 +18,23 @@ public class EventoController : Controller
 
     public EventoController(Context context)
     {
-            _context=context;
+        _context=context;
     }
 
-    [Authorize]
+    
     public IActionResult Index()
     {
+
+      if(HttpContext.Session.GetInt32("Sessao")!= 1)
+           return RedirectToAction("Login", "Cliente");
+
        return View();
+    }
+
+    public IActionResult Logout()
+    {
+      HttpContext.Session.SetInt32("Sessao", 0);
+      return RedirectToAction("Login", "Cliente");
     }
 
     

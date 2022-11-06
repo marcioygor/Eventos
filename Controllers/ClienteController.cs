@@ -49,38 +49,25 @@ public class ClienteController : Controller
       return View();
     }
 
-    public IActionResult LoginCliente(Cliente cliente)
+    public ActionResult LoginCliente(Cliente cliente)
     {         
       if (String.IsNullOrEmpty(cliente.Email) || String.IsNullOrEmpty(cliente.Password))
       {
-        TempData["LoginError"] = "É nescessário digitar usuário e senha.";
+        TempData["LoginError"] = "É nescessário digitar email e senha.";
         return RedirectToAction(nameof(Login));
       }
 
       var usuario=_context.Clientes.FirstOrDefault(x=> x.Email==cliente.Email && x.Password==cliente.Password);
 
       if (usuario is null){
-        TempData["LoginError"] = "Usuário não encontrado. Verifique as credencias de login e senha.";
+        TempData["LoginError"] = "Usuário não encontrado. Verifique o login e a senha.";
         return RedirectToAction(nameof(Login));
       }
 //P!ik76%
 //tester@gmail.com
-            var user=cliente;
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(Settings.Secret);
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-                    new Claim(type:ClaimTypes.Email, value:user.Email),
-                }),
-
-                Expires = DateTime.UtcNow.AddDays(7),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            user.Password = null;
+       
+        TempData["Nome"]=usuario.Nome;
+        HttpContext.Session.SetInt32("Sessao", 1);
         return RedirectToAction("Index", "Evento");
       }
           

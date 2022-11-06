@@ -13,36 +13,7 @@ string mySqlConnection =  builder.Configuration.GetConnectionString("myConnectio
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
-var key = Encoding.ASCII.GetBytes(Settings.Secret); //Buscando a chave na classe Settings
-
-//Nescessário os pacotes abaixo
-
-//Microsoft.AspNetCore.Authentication
-//Microsoft.AspNetCore.Authentication.JwtBearer
-
-builder.Services.AddAuthentication(x =>
-{
-    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(x =>
-       {
-        x.RequireHttpsMetadata = false;
-        x.SaveToken = true;
-        x.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(key),
-            ValidateIssuer = false,
-            ValidateAudience = false
-        };
-    });
-
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("user", policy => policy.RequireClaim("Store", "user"));
-    options.AddPolicy("admin", policy => policy.RequireClaim("Store", "admin"));
-});
+builder.Services.AddSession();
 
 
 var app = builder.Build();
@@ -59,8 +30,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
 
-app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
