@@ -1,0 +1,71 @@
+@model Evento
+
+<div class="text-danger">
+    @Html.ValidationSummary(true)
+</div>
+
+<div class="container col-11 col-md-9" id="form-container">
+    <div class="row gx-5">
+        <div class="col-md6">
+            <h2>Cadastre o seu Evento</h2>
+            <form asp-controller="Evento" asp-action="NovoEvento" method="post">
+                <div class="form-floating mb-3">
+                    <input asp-for="CapacidadeMaximaPessoas" class="form-control" />
+                    <label asp-for="CapacidadeMaximaPessoas"> </label>
+
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input asp-for="DescricaoEvento" class="form-control" />
+                    <label asp-for="DescricaoEvento"> </label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input asp-for="CEP" class="form-control" id="cep" />
+                    <label asp-for="CEP"> </label>
+
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input asp-for="UF" class="form-control" id="uf" />
+                    <label asp-for="UF"> </label>
+
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input asp-for="Cidade" class="form-control" id="cidade" />
+                    <label asp-for="Cidade"> </label>
+
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input asp-for="Bairro" class="form-control" id="bairro" />
+                    <label asp-for="Bairro"> </label>
+
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input asp-for="Rua" class="form-control" id="rua" />
+                    <label asp-for="Rua"> </label>
+
+                </div>
+
+                <div class="mb-3">
+                    <input type="submit" class="btn btn-primary" value="Cadastrar">
+                </div>
+
+            </form>
+
+            <div class="col-md-6">
+                <div class="row align-items-center">
+                    <div class="col-12">
+                        <img src="~/img/new.svg" alt="Cadastro de Evento" class="img-fluid">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
