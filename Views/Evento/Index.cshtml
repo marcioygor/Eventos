@@ -1,3 +1,5 @@
+@model IEnumerable<SistemaDeEventos.Models.Evento>
+
 <p>Bem vindo @TempData["Nome"] , Esperamos que vc encontre o melhor evento.</p>
 
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
@@ -29,3 +31,35 @@
     </div>
 
 </div>
+
+<br><br>
+
+<table class="table table-sm table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Capacidade Maxima</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">UF</th>
+            <th scope="col">Cidade</th>
+            <th scope="col">Bairro</th>
+            <th scope="col">Rua</th>
+            <th scope="col">CEP</th>
+            <th scope="col">Participantes</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.CapacidadeMaximaPessoas)</td>
+                <td>@Html.DisplayFor(modelItem => item.DescricaoEvento)</td>
+                <td>@Html.DisplayFor(modelItem => item.UF)</td>
+                <td>@Html.DisplayFor(modelItem => item.Cidade)</td>
+                <td>@Html.DisplayFor(modelItem => item.Bairro)</td>
+                <td>@Html.DisplayFor(modelItem => item.Cidade)</td>
+                <td>@Html.DisplayFor(modelItem => item.CEP)</td>
+                <td>@Html.DisplayFor(modelItem => item.NumeroDePessoasParticipantes)</td>
+            </tr>
+        }
+    </tbody>
+</table>

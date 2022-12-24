@@ -20,15 +20,16 @@ public class EventoController : Controller
     {
         _context=context;
     }
-
-    
+  
     public IActionResult Index()
     {
 
       if(HttpContext.Session.GetInt32("Sessao")!= 1)
            return RedirectToAction("Login", "Cliente");
 
-       return View();
+       var eventos=_context.Eventos.ToList();
+
+       return View(eventos);
     }
 
 
@@ -36,6 +37,11 @@ public class EventoController : Controller
     {
       if(HttpContext.Session.GetInt32("Sessao")!= 1)
            return RedirectToAction("Login", "Cliente");
+
+      if (TempData["EventoError"] != null)
+      {
+           ModelState.AddModelError(string.Empty, TempData["EventoError"].ToString());
+      }
 
        return View();
     }
@@ -46,7 +52,18 @@ public class EventoController : Controller
       if(HttpContext.Session.GetInt32("Sessao")!= 1)
            return RedirectToAction("Login", "Cliente");
 
-       return View();
+      if (evento.CapacidadeMaximaPessoas<5)
+      {
+        TempData["EventoError"] = "É nescessário ter no mínimo 5 participantes.";
+        return RedirectToAction(nameof(NovoEvento));
+      }
+
+        evento.clienteId=Settings.ClienteId;
+        evento.NumeroDePessoasParticipantes=0;
+       _context.Eventos.Add(evento);
+       _context.SaveChanges();
+
+       return RedirectToAction("Index", "Evento");
     }
 
     public IActionResult Logout()

@@ -68,6 +68,7 @@ public class ClienteController : Controller
        
         TempData["Nome"]=usuario.Nome;
         HttpContext.Session.SetInt32("Sessao", 1);
+        Settings.ClienteId=usuario.ClienteId;
         return RedirectToAction("Index", "Evento");
       }
           
