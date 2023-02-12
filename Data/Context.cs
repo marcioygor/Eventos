@@ -5,10 +5,12 @@ namespace SistemaDeEventos.Data
 {
     public class Context : DbContext
     {
-        public Context(DbContextOptions<Context> options):base(options){            
+        public Context(DbContextOptions<Context> options) : base(options)
+        {
         }
 
         public DbSet<Evento> Eventos { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<ClienteEvento> ClienteEvento { get; set; }
     }
 }

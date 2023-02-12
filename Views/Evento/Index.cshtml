@@ -4,7 +4,6 @@
 
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
 
-
 <div>
     <a class="btn btn-default" asp-controller="Evento" asp-action="Logout">
         <i class="glyphicon glyphicon-log-out"></i>
@@ -33,7 +32,6 @@
 </div>
 
 <br><br>
-
 <table class="table table-sm table-dark">
     <thead>
         <tr>
@@ -45,6 +43,7 @@
             <th scope="col">Rua</th>
             <th scope="col">CEP</th>
             <th scope="col">Participantes</th>
+            <th scope="col">Junta-se ao Evento</th>
         </tr>
     </thead>
     <tbody>
@@ -59,7 +58,14 @@
                 <td>@Html.DisplayFor(modelItem => item.Cidade)</td>
                 <td>@Html.DisplayFor(modelItem => item.CEP)</td>
                 <td>@Html.DisplayFor(modelItem => item.NumeroDePessoasParticipantes)</td>
+
+                <td>
+                    <a href="Evento/ParticiparEvento?EventoId=@item.EventoId">Participar do Evento</a>
+                </td>
+
+
             </tr>
+
         }
     </tbody>
 </table>

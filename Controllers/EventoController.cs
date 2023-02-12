@@ -18,59 +18,76 @@ public class EventoController : Controller
 
     public EventoController(Context context)
     {
-        _context=context;
+        _context = context;
     }
-  
+
     public IActionResult Index()
     {
+        if (HttpContext.Session.GetInt32("Sessao") != 1)
+            return RedirectToAction("Login", "Cliente");
 
-      if(HttpContext.Session.GetInt32("Sessao")!= 1)
-           return RedirectToAction("Login", "Cliente");
+        var eventos = _context.Eventos.ToList();
 
-       var eventos=_context.Eventos.ToList();
-
-       return View(eventos);
+        return View(eventos);
     }
 
 
     public IActionResult NovoEvento()
     {
-      if(HttpContext.Session.GetInt32("Sessao")!= 1)
-           return RedirectToAction("Login", "Cliente");
+        if (HttpContext.Session.GetInt32("Sessao") != 1)
+            return RedirectToAction("Login", "Cliente");
 
-      if (TempData["EventoError"] != null)
-      {
-           ModelState.AddModelError(string.Empty, TempData["EventoError"].ToString());
-      }
+        if (TempData["EventoError"] != null)
+        {
+            ModelState.AddModelError(string.Empty, TempData["EventoError"].ToString());
+        }
 
-       return View();
+        return View();
     }
 
     [HttpPost]
     public IActionResult NovoEvento(Evento evento)
     {
-      if(HttpContext.Session.GetInt32("Sessao")!= 1)
-           return RedirectToAction("Login", "Cliente");
+        if (HttpContext.Session.GetInt32("Sessao") != 1)
+            return RedirectToAction("Login", "Cliente");
 
-      if (evento.CapacidadeMaximaPessoas<5)
-      {
-        TempData["EventoError"] = "É nescessário ter no mínimo 5 participantes.";
-        return RedirectToAction(nameof(NovoEvento));
-      }
+        if (evento.CapacidadeMaximaPessoas < 5)
+        {
+            TempData["EventoError"] = "É nescessário ter no mínimo 5 participantes.";
+            return RedirectToAction(nameof(NovoEvento));
+        }
 
-        evento.clienteId=Settings.ClienteId;
-        evento.NumeroDePessoasParticipantes=0;
-       _context.Eventos.Add(evento);
-       _context.SaveChanges();
+        evento.clienteId = Settings.ClienteId;
+        evento.NumeroDePessoasParticipantes = 0;
+        _context.Eventos.Add(evento);
+        _context.SaveChanges();
 
-       return RedirectToAction("Index", "Evento");
+        return RedirectToAction("Index", "Evento");
     }
 
-    public IActionResult Logout()
+    public IActionResult ParticiparEvento([FromRoute] string EventoId)
     {
-      HttpContext.Session.SetInt32("Sessao", 0);
-      return RedirectToAction("Login", "Cliente");
+
+        if (HttpContext.Session.GetInt32("Sessao") != 1)
+            return RedirectToAction("Login", "Cliente");
+
+         return Ok(EventoId);
+
+        }
+
+     public IActionResult Logout()
+    {
+        HttpContext.Session.SetInt32("Sessao", 0);
+        return RedirectToAction("Login", "Cliente");
+    }
+
     }
 
     
-}
+
+    
+
+  
+    
+
+
