@@ -65,11 +65,37 @@ public class EventoController : Controller
         return RedirectToAction("Index", "Evento");
     }
 
-    public IActionResult ParticiparEvento([FromRoute] string EventoId)
+    public IActionResult ParticiparEvento(string EventoId)
     {
-
         if (HttpContext.Session.GetInt32("Sessao") != 1)
             return RedirectToAction("Login", "Cliente");
+      
+        int IdEventoNum;
+        bool conversaoBemSucedida = int.TryParse(EventoId, out IdEventoNum);
+        EventoCliente eventoCliente=new EventoCliente();
+        
+        if(!conversaoBemSucedida) return Content("Ocorreu um erro no servidor.");
+ 
+        var evento= _context.Eventos.FirstOrDefault(x=> x.EventoId==IdEventoNum);
+
+        if(evento is null) return NotFound("Evento não encontrado");
+
+        if (evento.NumeroDePessoasParticipantes< evento.CapacidadeMaximaPessoas)
+        {
+            evento.NumeroDePessoasParticipantes+=1;
+        }
+
+        else
+        {
+            return BadRequest("Evento lotado.");
+        }
+
+         eventoCliente.ClienteId=Settings.ClienteId;
+         eventoCliente.EventoId=evento.EventoId;
+         eventoCliente.DescricaoEvento=evento.DescricaoEvento;
+
+        _context.EventoClientes.Add(eventoCliente);
+        _context.SaveChanges();
 
          return Ok(EventoId);
 

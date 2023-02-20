@@ -11,6 +11,6 @@ namespace SistemaDeEventos.Data
 
         public DbSet<Evento> Eventos { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
-        public DbSet<ClienteEvento> ClienteEvento { get; set; }
+        public DbSet<EventoCliente> EventoClientes { get; set; }
     }
 }
