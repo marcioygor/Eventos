@@ -13,11 +13,12 @@ a[b-9xyybsxww2] {
 
 .btn-primary[b-9xyybsxww2] {
   color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+  background-color: #6c63FF;
+  border-color: #6c63FF;
 }
 
-.nav-pills .nav-link.active[b-9xyybsxww2], .nav-pills .show > .nav-link[b-9xyybsxww2] {
+.nav-pills .nav-link.active[b-9xyybsxww2],
+.nav-pills .show>.nav-link[b-9xyybsxww2] {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
@@ -26,6 +27,7 @@ a[b-9xyybsxww2] {
 .border-top[b-9xyybsxww2] {
   border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom[b-9xyybsxww2] {
   border-bottom: 1px solid #e5e5e5;
 }

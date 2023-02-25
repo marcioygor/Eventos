@@ -97,7 +97,7 @@ public class EventoController : Controller
         _context.EventoClientes.Add(eventoCliente);
         _context.SaveChanges();
 
-         return Ok(EventoId);
+        return RedirectToAction("Index", "Evento");
 
         }
 
